@@ -5,12 +5,12 @@ module.exports = (arr = [], needle) => {
     med = Math.floor((start + end)/2)
     const lookup = arr[med]
     if (lookup < needle) {
-      start = med + 1
+      start = med + 1, med = start
     } else if (lookup > needle) {
-      end = med - 1
+      end = med - 1, med = end
     } else {
       return med
     }
   }
-  return -1
+  return arr[med] !== undefined && arr[med] === needle ? med : -1
 }
